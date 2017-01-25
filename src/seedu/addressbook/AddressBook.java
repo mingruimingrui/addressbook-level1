@@ -194,6 +194,13 @@ public class AddressBook {
      * The path to the file used for storing person data.
      */
     private static String storageFilePath;
+    
+    /**
+     * These are magic numbers used in the function process program args
+     */
+    private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_2 = 2;
+    private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_1 = 1;
+    private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_0 = 0;
 
     /*
      * NOTE : =============================================================
@@ -257,16 +264,16 @@ public class AddressBook {
      * @param args full program arguments passed to application main method
      */
     private static void processProgramArgs(String[] args) {
-        if (args.length >= 2) {
+        if (args.length >= PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_2) {
             showToUser(MESSAGE_INVALID_PROGRAM_ARGS);
             exitProgram();
         }
 
-        if (args.length == 1) {
+        if (args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_1) {
             setupGivenFileForStorage(args[0]);
         }
 
-        if(args.length == 0) {
+        if(args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_0) {
             setupDefaultFileForStorage();
         }
     }
