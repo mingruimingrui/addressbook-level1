@@ -546,7 +546,8 @@ public class AddressBook {
      * @return extracted index
      */
     private static int extractTargetIndexFromDeletePersonArgs(String rawArgs) {
-        return Integer.parseInt(rawArgs.trim());
+        String trimmedArgs = rawArgs.trim();
+    	return Integer.parseInt(trimmedArgs);
     }
 
     /**
