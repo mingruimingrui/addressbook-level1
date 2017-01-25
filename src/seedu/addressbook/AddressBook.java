@@ -267,14 +267,12 @@ public class AddressBook {
         if (args.length >= PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_2) {
             showToUser(MESSAGE_INVALID_PROGRAM_ARGS);
             exitProgram();
-        }
-
-        if (args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_1) {
+        } else if (args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_1) {
             setupGivenFileForStorage(args[0]);
-        }
-
-        if(args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_0) {
+        } else if(args.length == PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_0) {
             setupDefaultFileForStorage();
+        } else {
+        	exitProgram();
         }
     }
 
