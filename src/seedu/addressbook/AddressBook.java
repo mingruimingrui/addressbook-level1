@@ -201,6 +201,12 @@ public class AddressBook {
     private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_2 = 2;
     private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_1 = 1;
     private static final int PROCESS_PROGRAM_ARGS_MAGIC_NUMBER_0 = 0;
+    
+    /**
+     * These are magic numbers used in the function executeCommand
+     */
+    private static final int COMMAND_TYPE_INDEX = 0;
+    private static final int COMMAND_ARGS_INDEX = 1;
 
     /*
      * NOTE : =============================================================
@@ -371,8 +377,8 @@ public class AddressBook {
      */
     private static String executeCommand(String userInputString) {
         final String[] commandTypeAndParams = splitCommandWordAndArgs(userInputString);
-        final String commandType = commandTypeAndParams[0];
-        final String commandArgs = commandTypeAndParams[1];
+        final String commandType = commandTypeAndParams[COMMAND_TYPE_INDEX];
+        final String commandArgs = commandTypeAndParams[COMMAND_ARGS_INDEX];
         switch (commandType) {
         case COMMAND_ADD_WORD:
             return executeAddPerson(commandArgs);
