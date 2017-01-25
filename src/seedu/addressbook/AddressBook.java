@@ -207,6 +207,13 @@ public class AddressBook {
      */
     private static final int COMMAND_TYPE_INDEX = 0;
     private static final int COMMAND_ARGS_INDEX = 1;
+    
+    /**
+     * These are magic numbers used in the function isPersonDataExtractableFrom
+     */
+    private static final int SPLIT_ARGS_INDEX_0 = 0;
+    private static final int SPLIT_ARGS_INDEX_1 = 1;
+    private static final int SPLIT_ARGS_INDEX_2 = 2;
 
     /*
      * NOTE : =============================================================
@@ -973,9 +980,9 @@ public class AddressBook {
         final String matchAnyPersonDataPrefix = PERSON_DATA_PREFIX_PHONE + '|' + PERSON_DATA_PREFIX_EMAIL;
         final String[] splitArgs = personData.trim().split(matchAnyPersonDataPrefix);
         return splitArgs.length == 3 // 3 arguments
-                && !splitArgs[0].isEmpty() // non-empty arguments
-                && !splitArgs[1].isEmpty()
-                && !splitArgs[2].isEmpty();
+                && !splitArgs[SPLIT_ARGS_INDEX_0].isEmpty() // non-empty arguments
+                && !splitArgs[SPLIT_ARGS_INDEX_1].isEmpty()
+                && !splitArgs[SPLIT_ARGS_INDEX_2].isEmpty();
     }
 
     /**
